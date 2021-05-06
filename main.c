@@ -5,6 +5,7 @@
 #include <errno.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <fcntl.h>
 
 size_t	ft_strlen(const char *s);
 char 	*ft_strcpy(char *dest, const char *src);
@@ -32,6 +33,8 @@ int	main(void)
 	char	*test_str_blank	= " ";
 	char	*test_str_hello	= "hello!";
 	char	*test_str_long	= "As consumers pay more attention to package labels, and legislation starts requiring food companies to be upfront about what goes into their products, downsizing has become a popular way for good businesses to deal with increasing pressure to cut calories and boost healthiness in processed foods.";
+
+	int	fd = 0;
 
 	//ft_strlen
 
@@ -191,6 +194,30 @@ int	main(void)
 
 	printf("\n\n------------------------------------\n\n");
 
+	// printf("fd = open(\"test.txt\", O_RDWR);\n");
+	// fd = open("test.txt", O_RDWR);
+	// printf("write(fd, test_str_hello, strlen(test_str_hello));\n");
+	// write_rt = write(fd, test_str_hello, strlen(test_str_hello));
+	// errnum = errno;
+	// perror("write");
+	// printf("write_rt = %ld, errno = %d", write_rt, errnum);	
+	// close(fd);
+
+	// printf("\n\n");
+	// errnum = 0;
+	// errno = 0;
+
+	// printf("fd = open(\"test.txt\", O_RDWR);\n");
+	// fd = open("test.txt", O_RDWR);
+	// printf("ft_write(fd, test_str_hello, strlen(test_str_hello));\n");
+	// ft_write_rt = ft_write(fd, test_str_hello, strlen(test_str_hello));
+	// errnum = errno;
+	// perror("ft_write");
+	// printf("ft_write_rt = %ld, errno = %d", ft_write_rt, errnum);	
+	// close(fd);
+
+	printf("\n\n------------------------------------\n\n");
+
 
 	printf("write(-1, test_str_hello, strlen(test_str_hello));\n");
 	write_rt = write(-1, test_str_hello, strlen(test_str_hello));
@@ -231,15 +258,20 @@ int	main(void)
 		ssize_t read_rt;
 		char *buf;
 
+		//fd = open("test.txt", O_RDWR);
+
 		buf = malloc(sizeof(char *) * 100);
-		//read_rt = read(0, buf, 100);
-		read_rt = ft_read(0, buf, 100);
+		read_rt = read(0, buf, 100);
+		//read_rt = ft_read(fd, buf, 100);
 		errnum = errno;
 		perror("read");
 		buf[read_rt] = '\0';
+		//printf("fd = [%d] ", fd);
 		printf("read_rt = %ld, errno = %d", read_rt, errnum);
 		printf(" buf = %s\n", buf);
 		free_od_array(&buf);
+
+		//close(fd);
 	}
 
 	printf("\n");
