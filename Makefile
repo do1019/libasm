@@ -1,5 +1,5 @@
 CC			:= gcc
-CFLAGS		:= -L.
+CFLAGS		:= -L. -lasm
 LIBS		:= ar rcs
 NAME		:= libasm.a
 MAIN		:= main.c

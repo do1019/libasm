@@ -18,7 +18,7 @@ void	free_od_array(char **array);
 
 int	main(void)
 {
-	char	*Separator_line = "------------------------------"; //---------------
+	char	*Separator_line = "------------------------------";
 	char	*high_brightness = "\x1b[1m";
 	char	*yellow = "\x1b[33m";
 	char	*magenta = "\x1b[35m";
@@ -194,27 +194,27 @@ int	main(void)
 
 	printf("\n\n------------------------------------\n\n");
 
-	// printf("fd = open(\"test.txt\", O_RDWR);\n");
-	// fd = open("test.txt", O_RDWR);
-	// printf("write(fd, test_str_hello, strlen(test_str_hello));\n");
-	// write_rt = write(fd, test_str_hello, strlen(test_str_hello));
-	// errnum = errno;
-	// perror("write");
-	// printf("write_rt = %ld, errno = %d", write_rt, errnum);	
-	// close(fd);
+	printf("fd = open(\"test.txt\", O_RDWR);\n");
+	fd = open("test.txt", O_RDWR);
+	printf("write(fd, test_str_hello, strlen(test_str_hello));\n");
+	write_rt = write(fd, test_str_hello, strlen(test_str_hello));
+	errnum = errno;
+	perror("write");
+	printf("write_rt = %ld, errno = %d", write_rt, errnum);	
+	close();
 
-	// printf("\n\n");
-	// errnum = 0;
-	// errno = 0;
+	printf("\n\n");
+	errnum = 0;
+	errno = 0;
 
-	// printf("fd = open(\"test.txt\", O_RDWR);\n");
-	// fd = open("test.txt", O_RDWR);
-	// printf("ft_write(fd, test_str_hello, strlen(test_str_hello));\n");
-	// ft_write_rt = ft_write(fd, test_str_hello, strlen(test_str_hello));
-	// errnum = errno;
-	// perror("ft_write");
-	// printf("ft_write_rt = %ld, errno = %d", ft_write_rt, errnum);	
-	// close(fd);
+	printf("fd = open(\"test.txt\", O_RDWR);\n");
+	fd = open("test.txt", O_RDWR);
+	printf("ft_write(fd, test_str_hello, strlen(test_str_hello));\n");
+	ft_write_rt = ft_write(fd, test_str_hello, strlen(test_str_hello));
+	errnum = errno;
+	perror("ft_write");
+	printf("ft_write_rt = %ld, errno = %d", ft_write_rt, errnum);	
+	close(fd);
 
 	printf("\n\n------------------------------------\n\n");
 
@@ -262,7 +262,7 @@ int	main(void)
 
 		buf = malloc(sizeof(char *) * 100);
 		read_rt = read(0, buf, 100);
-		//read_rt = ft_read(fd, buf, 100);
+		//read_rt = ft_read(0, buf, 100);
 		errnum = errno;
 		perror("read");
 		buf[read_rt] = '\0';
